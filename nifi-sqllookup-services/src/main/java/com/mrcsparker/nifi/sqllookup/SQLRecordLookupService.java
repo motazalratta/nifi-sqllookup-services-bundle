@@ -163,7 +163,7 @@ public class SQLRecordLookupService extends AbstractSQLLookupService<Record> {
 
     @Override
     protected Optional<Record> cacheLookup(Map<String, Object> coordinates) throws LookupFailureException {
-        String cacheKey = sqlQuery + ":" + coordinates.hashCode();
+        String cacheKey = sqlQuery + ":" + coordinates.toString().hashCode();
 
         Record record = cache.get(cacheKey);
         if (record != null) {
